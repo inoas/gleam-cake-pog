@@ -7,5 +7,6 @@ docker compose down
 docker rm gleam-cake-test-postgres --force --volumes 2>/dev/null
 docker rm gleam-cake-test-mariadb --force --volumes 2>/dev/null
 rm -rf docker/data/*
+mkdir docker/data
 touch docker/data/.keep
 docker compose up --remove-orphans
