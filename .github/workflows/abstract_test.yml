@@ -67,7 +67,7 @@ jobs:
         with:
           gleam_version: ${{ inputs.gleam_version }}
           erlang_version: ${{ matrix.erlang }}
-      - run: ./.github/sh/create-database-gleam_cake_test-postgres.sh
+      - run: ./.github/sh/create-database-gleam_cake_pog_test-postgres.sh
         env:
           PGHOST: localhost
           PGPORT: 5432

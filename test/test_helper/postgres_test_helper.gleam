@@ -9,7 +9,7 @@ fn with_local_test_connection(callback callback) {
     port: 5432,
     username: "postgres",
     password: Some("postgres"),
-    database: "gleam_cake_test",
+    database: "gleam_cake_pog_test",
     callback:,
   )
 }

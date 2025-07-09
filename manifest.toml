@@ -5,7 +5,7 @@ packages = [
   { name = "argv", version = "1.0.2", build_tools = ["gleam"], requirements = [], otp_app = "argv", source = "hex", outer_checksum = "BA1FF0929525DEBA1CE67256E5ADF77A7CDDFE729E3E3F57A5BDCAA031DED09D" },
   { name = "backoff", version = "1.1.6", build_tools = ["rebar3"], requirements = [], otp_app = "backoff", source = "hex", outer_checksum = "CF0CFFF8995FB20562F822E5CC47D8CCF664C5ECDC26A684CBE85C225F9D7C39" },
   { name = "birdie", version = "1.3.1", build_tools = ["gleam"], requirements = ["argv", "edit_distance", "filepath", "glance", "gleam_community_ansi", "gleam_stdlib", "justin", "rank", "simplifile", "term_size", "trie_again"], otp_app = "birdie", source = "hex", outer_checksum = "F811C9EDAF920EF48597A26E788907AAF80D9239A5E8C8CCFBD0DD1BB10184D7" },
-  { name = "cake", version = "2.1.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "cake", source = "hex", outer_checksum = "D0EA8E576457F35C355CB40A934D4F20140C6DD5E24946150B36E909B5B33F54" },
+  { name = "cake", version = "2.1.2", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "cake", source = "hex", outer_checksum = "E692DED831B81F34CEB52042E27A9D1F78684BDF58E26B9245550D5613B4F2CE" },
   { name = "edit_distance", version = "2.0.1", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "edit_distance", source = "hex", outer_checksum = "A1E485C69A70210223E46E63985FA1008B8B2DDA9848B7897469171B29020C05" },
   { name = "exception", version = "2.1.0", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "exception", source = "hex", outer_checksum = "329D269D5C2A314F7364BD2711372B6F2C58FA6F39981572E5CA68624D291F8C" },
   { name = "filepath", version = "1.1.2", build_tools = ["gleam"], requirements = ["gleam_stdlib"], otp_app = "filepath", source = "hex", outer_checksum = "B06A9AF0BF10E51401D64B98E4B627F1D2E48C154967DA7AF4D0914780A6D40A" },
@@ -34,10 +34,10 @@ packages = [
 ]
 
 [requirements]
-birdie = { version = ">= 1.2.6 and < 2.0.0" }
-cake = { version = ">= 2.1.1 and < 3.0.0" }
+birdie = { version = ">= 1.3.1 and < 2.0.0" }
+cake = { version = ">= 2.1.2 and < 3.0.0" }
 gleam_erlang = { version = ">= 1.2.0 and < 2.0.0" }
 gleam_stdlib = { version = ">= 0.61.0 and < 2.0.0" }
-gleeunit = { version = ">= 1.3.0 and < 2.0.0" }
+gleeunit = { version = ">= 1.6.0 and < 2.0.0" }
 pog = { version = ">= 4.0.0 and < 5.0.0" }
 pprint = { version = ">= 1.0.6 and < 2.0.0" }
