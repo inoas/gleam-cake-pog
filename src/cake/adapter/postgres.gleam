@@ -11,11 +11,20 @@ import cake/param.{
   type Param, BoolParam, FloatParam, IntParam, NullParam, StringParam,
 }
 import gleam/dynamic/decode.{type Decoder}
+import gleam/erlang/process
 import gleam/list
 import gleam/option.{type Option}
 import pog.{type Connection, type QueryError, type Returned, type Value}
 
-/// Connection to a PostgreSQL database.
+const default_process_name = "cake_pog"
+
+/// Runs a callbakc on a connection to a PostgreSQL database.
+///
+/// NOTICE: ⚠️⚠️⚠️ You should probably be using `gleam_erlang`'s
+/// `supervisor.new`, `supervisor.add`, and `supervisor.start` instead,
+/// to create the database connection.
+///
+/// See `pog`'s official documentation <https://hexdocs.pm/pog/>.
 ///
 /// This is a thin wrapper around the `pog` library's `Connection` type.
 ///
@@ -27,19 +36,55 @@ pub fn with_connection(
   database database: String,
   callback callback: fn(Connection) -> a,
 ) -> a {
-  let connection =
-    pog.Config(
-      ..pog.default_config(),
-      host: host,
-      port: port,
-      user: username,
-      password: password,
-      database: database,
-    )
-    |> pog.connect
+  let process = process.new_name(default_process_name)
 
-  let value = callback(connection)
-  pog.disconnect(connection)
+  with_named_connection(
+    process:,
+    host:,
+    port:,
+    username:,
+    password:,
+    database:,
+    callback:,
+  )
+}
+
+/// Runs a callback on a connection to a PostgreSQL database.
+///
+/// NOTICE: ⚠️⚠️⚠️ You should probably be using `gleam_erlang`'s
+/// `supervisor.new`, `supervisor.add`, and `supervisor.start` instead,
+/// to create the database connection.
+///
+/// See `pog`'s official documentation <https://hexdocs.pm/pog/>.
+///
+/// This is a thin wrapper around the `pog` library's `Connection` type.
+///
+/// In addition to `with_connection` you may specify the erlang process name.
+///
+pub fn with_named_connection(
+  process process: process.Name(pog.Message),
+  host host: String,
+  port port: Int,
+  username username: String,
+  password password: Option(String),
+  database database: String,
+  callback callback: fn(Connection) -> a,
+) -> a {
+  let pog_config =
+    pog.default_config(process)
+    |> pog.port(port)
+    |> pog.user(username)
+    |> pog.password(password)
+    |> pog.host(host)
+    |> pog.database(database)
+
+  let assert Ok(actor) = pog.start(pog_config)
+  let pid = actor.pid
+  let db = actor.data
+
+  let value = callback(db)
+
+  process.send_exit(pid)
 
   value
 }
