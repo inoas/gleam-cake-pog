@@ -1,4 +1,4 @@
-name: gleam-cake
+name: gleam-cake-pog
 networks:
   gleam-cake-pog-test:
     name: gleam-cake-pog-test
