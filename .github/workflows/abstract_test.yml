@@ -6,10 +6,10 @@ on:
       gleam_version:
         type: string
         required: true
-        default: "1.14.0"
+        default: "1.16.0"
       erlang_version:
         type: string
-        default: "28"
+        default: "29"
       test_erlang:
         type: boolean
         default: true
