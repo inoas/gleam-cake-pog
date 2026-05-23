@@ -6,6 +6,10 @@ and this project adheres to
 
 <!-- ## [Unreleased] -->
 
+## [1.5.0] - 2026-05-23
+
+- Permit cake `>= 2.2.0 and < 5.0.0`.
+
 ## [1.4.0] - 2026-04-30
 
 - Update deps.
