@@ -1,12 +1,19 @@
 # Adapter between `cake` and `pog`
 
-[![Package <a href="https://github.com/inoas/gleam-cake-pgo/releases"><img src="https://img.shields.io/github/release/inoas/gleam-cake-pog" alt="GitHub release"></a> Version](https://img.shields.io/hexpm/v/cake_pog)](https://hex.pm/packages/cake_pog)
+[![Downloads](https://img.shields.io/hexpm/dt/cake_pog)](https://hex.pm/packages/cake_pog)
 [![Erlang-compatible](https://img.shields.io/badge/target-erlang-b83998)](https://www.erlang.org/)
+[![JavaScript Compatible](https://img.shields.io/badge/target-javascript-f3e155)](https://en.wikipedia.org/wiki/JavaScript)
 [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/cake_pog/)
-[![Discord](https://img.shields.io/discord/768594524158427167?label=discord%20chat&amp;color=5865F2)](https://discord.gg/Fm8Pwmy)
+[![Package <a href="https://github.com/inoas/gleam-cake-pog/releases"><img src="https://img.shields.io/github/release/inoas/gleam-cake-pog" alt="GitHub release"></a> Version](https://img.shields.io/hexpm/v/cake_pog)](https://hex.pm/packages/cake_pog)
 [![CI Test](https://github.com/inoas/gleam-cake-pog/actions/workflows/test.yml/badge.svg?branch=main&amp;event=push)](https://github.com/inoas/gleam-cake-pog/actions/workflows/test.yml)
+[![License](https://img.shields.io/hexpm/l/cake_pog)](https://github.com/inoas/gleam-cake-pog/blob/main/LICENCE)
+[![Discord](https://img.shields.io/discord/768594524158427167?label=discord%20chat&amp;color=5865F2)](https://discord.gg/Fm8Pwmy)
+
+<br>
+<br>
 
 🎂[Cake](http://hex.pm/packages/cake) 🐘PostgreSQL adapter which passes `PreparedStatement`s to the [pog](http://hex.pm/packages/pog) library for execution written in [Gleam](https://gleam.run/).
+
 
 ## Installation
 
@@ -90,6 +97,7 @@ fn delete_from_table_birds(db_connection) {
   |> echo
 }
 ```
+
 
 ## History
 
