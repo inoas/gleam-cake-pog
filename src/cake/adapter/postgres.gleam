@@ -185,12 +185,12 @@ pub fn execute_raw_sql(
 
 fn cake_param_to_client_param(param param: Param) -> Value {
   case param {
-    StringParam(param) -> pog.text(param)
-    IntParam(param) -> pog.int(param)
-    FloatParam(param) -> pog.float(param)
+    StringParam(value) -> pog.text(value)
+    IntParam(value) -> pog.int(value)
+    FloatParam(value) -> pog.float(value)
     NullParam -> pog.null()
-    BoolParam(param) -> pog.bool(param)
-    DateParam(param) -> pog.calendar_date(param)
+    BoolParam(value) -> pog.bool(value)
+    DateParam(value) -> pog.calendar_date(value)
   }
 }
 
